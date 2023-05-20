@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+	lang="{{ lang | default: 'en' }}"
+	dir="{{ site.dir | default: 'ltr' }}"
+	class="no-js scroll-smooth background-primary color-default font-main border-box"
+	{% if site.service_worker %}
+		data-service-worker="{{ site.service_worker }}"
+		data-reload-on-update=""
+		data-scope="{{ site.sw_scope | default: '/' }}"
+	{% endif %}
+	{% if page.ads %}data-ad-sense-id="{{ site.ad-sense }}"{% endif %}
+	{% if page.pageLevelAds %}data-page-level-ads="{{ page.pageLevelAds }}"{% endif %}
+	data-layout="{{ page.data-layout | default: layout.data-layout | default: 'default' }}"
+	data-theme="{{ page.theme | default: layout.theme }}"{% if page.policies.trusted %}
+	data-trusted-policies="{{ page.policies.trusted | join: ' ' }}"{% elsif layout.policies.trusted %}
+	data-trusted-policies="{{ layout.policies.trusted | join: ' ' }}"{% elsif policies.trusted %}
+	data-trusted-policies="{{ policies.trusted | join: ' ' }}"{% endif %}
+	itemtype="{{ page.itemtype | default: layout.itemtype | default: 'http://schema.org/WebPage' }}"
+	itemscope=""
+>
+{% include "11ty-common/head.html" %}
+	<body
+		id="top"
+		{% if page.scene %}data-scene="{{ page.scene }}"{% endif %}
+		class="layout-{{ page.layout | default: 'default' }} {{ page.body-class | default: 'grid' }}"
+		{% if page.itemprop and page.itemtype %}
+			itemprop="{{ page.itemprop }}"
+			itemtype="{{ page.itemtype }}"
+			itemscope=""
+		{% endif %}
+	>
+		{{ content }}
+	</body>
+</html>
