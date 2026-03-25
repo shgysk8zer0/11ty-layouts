@@ -2,6 +2,7 @@
 <html
 	lang="{{ lang | default: 'en' }}"
 	dir="{{ site.dir | default: 'ltr' }}"
+	id="{{ rootId | default 'doc' }}"
 	class="no-js scroll-smooth background-primary color-default font-main border-box"
 	{% if site.service_worker %}
 		data-service-worker="{{ site.service_worker }}"
