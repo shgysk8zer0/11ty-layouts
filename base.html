@@ -7,7 +7,7 @@
 	{% if site.service_worker %}
 		data-service-worker="{{ site.service_worker }}"
 		data-service-worker-type="{{ site.service_worker_type | default: 'classic' }}"
-		data-service-worker-update-via-cache="{{ site.service_worker_update_via_cache | 'imports' }}"
+		data-service-worker-update-via-cache="{{ site.service_worker_update_via_cache | default: 'imports' }}"
 		data-reload-on-update=""
 		data-scope="{{ site.sw_scope | default: '/' }}"
 	{% endif %}
