@@ -15,3 +15,4 @@ main-itemtype: Event
 {% unless page.no-sidebar %}{% include "sidebar.html" recent-posts: layout.recent-posts pinned-posts: layout.pinned-posts %}{% endunless %}
 {% unless page.no-footer == true %}{% include "11ty-common/footer.html" keep-kern-clean: site.keep-kern-clean %}{% endunless %}
 {% unless page.no-share == true %}{% include "11ty-common/share-button.html" text: description title: title %}{% endunless %}
+<pwa-prompt id="pwa-install-prompt" popover="auto"></pwa-prompt>
