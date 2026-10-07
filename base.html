@@ -18,7 +18,7 @@
 	data-trusted-policies="{{ page.policies.trusted | join: ' ' }}"{% elsif layout.policies.trusted %}
 	data-trusted-policies="{{ layout.policies.trusted | join: ' ' }}"{% elsif policies.trusted %}
 	data-trusted-policies="{{ policies.trusted | join: ' ' }}"{% endif %}
-	itemtype="{{ itemtype | default: 'http://schema.org/WebPage' }}"
+	itemtype="https://schema.org/{{ itemtype | default: 'WebPage' }}"
 	itemscope=""
 >
 {% include "11ty-common/head.html" %}
